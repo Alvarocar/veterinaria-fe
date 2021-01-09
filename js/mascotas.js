@@ -32,18 +32,22 @@ function listarMascotas() {
     <td>
       <div class="btn-group btn-group-sm" role="group">
         <button type="button" class="btn btn-info btn-editar"><i class="fas fa-edit"></i></button>
-        <button type="button" class="btn-eliminar btn btn-danger"><i class="far fa-trash-alt"></i></button>
+        <button type="button" class="btn btn-danger btn-eliminar"><i class="far fa-trash-alt"></i></button>
       </div>
     </td>
     </tr>`).join("");
   listaMascotas.innerHTML = htmlMascotas;
   agregarFuncionEditar();
+  agregarFuncionEliminar();
 }
 
 function agregarFuncionEditar() {
-  Array.from(document.getElementsByClassName('btn-editar')).forEach((element, index) => { element.onclick = editarMascota(index); })
+  Array.from(document.getElementsByClassName('btn-editar')).forEach((element, index) => { element.onclick = editarMascota(index) })
 }
 
+function agregarFuncionEliminar(){
+  Array.from(document.getElementsByClassName('btn-eliminar')).forEach((element, index) => { element.onclick = eliminarMascota(index) })
+}
 function enviarMascota() {
 
   const datos = {
@@ -81,6 +85,13 @@ function editarMascota(index) {
     btnEnviar.innerHTML = "Editar";
     $('#myModal').modal();
   }
+}
+
+function eliminarMascota(index){
+    return () => {
+       mascotas =  mascotas.filter(( _ , i) => i !== index);
+       listarMascotas();
+    }
 }
 
 function limpiarModal() {
