@@ -48,7 +48,7 @@
     <!-- Fin NavBar -->
     <div class="actions-menu">
       <h1>Mascotas</h1>
-      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      <button type="button" id="btn-nuevo" class="btn btn-primary">
         Nuevo
       </button>
     </div>
@@ -69,17 +69,17 @@
   </div>
 
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Nueva Mascota</h5>
+          <h5 class="modal-title" id="myModalLabel">Nueva Mascota</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <form>
+          <form id="form-mascotas" autocomplete="off">
             <div class="form-row">
               <div class="col">
                 <select class="form-control" id="tipo-mascota">
@@ -94,17 +94,17 @@
             </div>
             <div class="form-row">
               <div class="col">
-                <input type="text" name="nombre" class="form-control" placeholder="Nombre de la Mascota" />
+                <input type="text" id="nombre" name="nombre" class="form-control" placeholder="Nombre de la Mascota" />
               </div>
               <div class="col">
-                <input type="text" name="dueno" class="form-control" placeholder="Dueño" />
+                <input type="text" id="dueno" name="dueno" class="form-control" placeholder="Dueño" />
               </div>
             </div>
           </form>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="button" class="btn btn-primary">Guardar</button>
+          <button type="button" id="btn-enviar" class="btn btn-primary" data-dismiss="modal">Guardar</button>
         </div>
       </div>
     </div>
